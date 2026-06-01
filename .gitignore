@@ -1,0 +1,12 @@
+# Fichiers de configuration et de cache locaux Antigravity
+.agents/
+.gemini/
+scratch/
+*.log
+
+# Base de données CSV (optionnel, mais lourd pour git si volumineux. On peut le laisser ou l'exclure. Laissons-le car 2Mo est acceptable et utile pour GitHub)
+# ai_tools_10k_gems.csv
+
+# Fichiers système
+.DS_Store
+Thumbs.db

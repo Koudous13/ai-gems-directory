@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ AI Gems Directory — 10 000 Outils IA</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar - Filtres -->
+        <aside class="sidebar animate-fade-in">
+            <div class="sidebar-header">
+                <div class="logo-area">
+                    <span class="logo-icon"><i class="fa-solid fa-gem"></i></span>
+                    <h1>AI Gems</h1>
+                </div>
+                <p class="subtitle">10 000 Outils IA indexés</p>
+            </div>
+            
+            <div class="filter-section">
+                <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i> Recherche rapide</label>
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Nom, description, lien..." autocomplete="off">
+                    <button id="clear-search" class="clear-btn" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <label><i class="fa-solid fa-tags"></i> Catégories</label>
+                <div class="categories-list" id="categories-filter">
+                    <!-- Dynamic categories injection -->
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <label><i class="fa-solid fa-filter"></i> Option de prix</label>
+                <div class="toggle-wrapper">
+                    <span class="toggle-label">Gratuit / Freemium uniquement</span>
+                    <label class="switch">
+                        <input type="checkbox" id="free-only-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <label><i class="fa-solid fa-star"></i> Favoris</label>
+                <div class="toggle-wrapper">
+                    <span class="toggle-label">Afficher uniquement mes favoris</span>
+                    <label class="switch">
+                        <input type="checkbox" id="favorites-only-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <button id="reset-filters" class="reset-btn"><i class="fa-solid fa-rotate-left"></i> Réinitialiser les filtres</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header & Stats -->
+            <header class="main-header animate-fade-in">
+                <div class="header-title">
+                    <h2>Tableau de Bord Explorateur</h2>
+                    <p>Découvrez, triez et collectez les meilleures ressources d'intelligence artificielle.</p>
+                </div>
+            </header>
+
+            <!-- Stats Bar -->
+            <section class="stats-bar animate-fade-in">
+                <div class="stat-card">
+                    <div class="stat-icon text-indigo"><i class="fa-solid fa-database"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="stat-total">10 000</span>
+                        <span class="stat-label">Outils Totaux</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon text-emerald"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="stat-free">1 208</span>
+                        <span class="stat-label">Gratuits / Freemium</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon text-amber"><i class="fa-solid fa-star"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="stat-favs">0</span>
+                        <span class="stat-label">Mes Favoris</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon text-cyan"><i class="fa-solid fa-filter"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="stat-filtered">10 000</span>
+                        <span class="stat-label">Filtrés</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Toolbar & Controls -->
+            <section class="toolbar animate-fade-in">
+                <div class="active-filters-container">
+                    <span class="active-label">Résultats :</span>
+                    <span class="results-count" id="results-count">10 000 outils trouvés</span>
+                </div>
+                
+                <div class="sort-container">
+                    <label for="sort-select"><i class="fa-solid fa-arrow-down-wide-short"></i> Trier par :</label>
+                    <select id="sort-select">
+                        <option value="id-asc">Pertinence (ID croissant)</option>
+                        <option value="free-first">Gratuits en premier</option>
+                        <option value="name-asc">Nom (A ➔ Z)</option>
+                        <option value="name-desc">Nom (Z ➔ A)</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Tools Grid -->
+            <section class="tools-grid animate-fade-in" id="tools-container">
+                <!-- Dynamic cards injection -->
+            </section>
+
+            <!-- Pagination -->
+            <footer class="pagination-footer animate-fade-in">
+                <button id="prev-page" class="pag-btn"><i class="fa-solid fa-chevron-left"></i> Précédent</button>
+                <div class="page-numbers" id="page-numbers-container">
+                    <!-- Dynamic page numbers injection -->
+                </div>
+                <button id="next-page" class="pag-btn">Suivant <i class="fa-solid fa-chevron-right"></i></button>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Load compact data first -->
+    <script src="ai_tools_data.js"></script>
+    <!-- Load App logic -->
+    <script src="app.js"></script>
+</body>
+</html>
