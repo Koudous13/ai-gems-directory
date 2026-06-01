@@ -186,6 +186,46 @@ function setupEventListeners() {
             scrollToTopGrid();
         }
     });
+
+    // Gestion du tiroir mobile (Sidebar)
+    const mobileToggle = document.getElementById("mobile-filter-toggle");
+    const closeSidebarBtn = document.getElementById("close-sidebar");
+    const sidebarPanel = document.getElementById("sidebar-panel");
+    const backdrop = document.getElementById("sidebar-backdrop");
+
+    if (mobileToggle && closeSidebarBtn && sidebarPanel && backdrop) {
+        mobileToggle.addEventListener("click", () => {
+            sidebarPanel.classList.add("open");
+            backdrop.classList.add("active");
+        });
+
+        const closeSidebar = () => {
+            sidebarPanel.classList.remove("open");
+            backdrop.classList.remove("active");
+        };
+
+        closeSidebarBtn.addEventListener("click", closeSidebar);
+        backdrop.addEventListener("click", closeSidebar);
+
+        // Fermer la sidebar mobile lors de la sélection d'un filtre sur petit écran
+        document.getElementById("categories-filter").addEventListener("click", (e) => {
+            if (e.target.closest(".category-pill") && window.innerWidth <= 1024) {
+                closeSidebar();
+            }
+        });
+        
+        document.getElementById("free-only-toggle").addEventListener("change", () => {
+            if (window.innerWidth <= 1024) {
+                closeSidebar();
+            }
+        });
+        
+        document.getElementById("favorites-only-toggle").addEventListener("change", () => {
+            if (window.innerWidth <= 1024) {
+                closeSidebar();
+            }
+        });
+    }
 }
 
 function scrollToTopGrid() {

@@ -14,12 +14,16 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Backdrop pour mobile -->
+        <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
         <!-- Sidebar - Filtres -->
-        <aside class="sidebar animate-fade-in">
+        <aside class="sidebar animate-fade-in" id="sidebar-panel">
             <div class="sidebar-header">
                 <div class="logo-area">
                     <span class="logo-icon"><i class="fa-solid fa-gem"></i></span>
                     <h1>AI Gems</h1>
+                    <button id="close-sidebar" class="close-sidebar-btn"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <p class="subtitle">10 000 Outils IA indexés</p>
             </div>
@@ -72,6 +76,7 @@
                     <h2>Tableau de Bord Explorateur</h2>
                     <p>Découvrez, triez et collectez les meilleures ressources d'intelligence artificielle.</p>
                 </div>
+                <button id="mobile-filter-toggle" class="mobile-filter-btn"><i class="fa-solid fa-sliders"></i> Filtres</button>
             </header>
 
             <!-- Stats Bar -->
